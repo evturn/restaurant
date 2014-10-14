@@ -2,7 +2,7 @@ CREATE DATABASE restaurant_db;
 
 \c restaurant_db;
 
-CREATE TABLE food (
+CREATE TABLE foods (
 	id SERIAL PRIMARY KEY,
 	name varchar(100),
 	price INTEGER
@@ -19,14 +19,14 @@ CREATE TABLE orders (
 	party_id INTEGER
 	);
 
-INSERT INTO food (name, price)
+INSERT INTO foods (name, price)
 	VALUES ('Hamburger', 5);
 
-INSERT INTO food (name, price)
+INSERT INTO foods (name, price)
 	VALUES ('Pizza', 5);
 
-INSERT INTO food (name, price)
+INSERT INTO foods (name, price)
 	VALUES ('Plain Ass Sandwich', 5);
 
-INSERT INTO food (name, price)
+INSERT INTO foods (name, price)
 	VALUES ('Salad', 5);

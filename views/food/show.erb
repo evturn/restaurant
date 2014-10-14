@@ -1,0 +1,6 @@
+<h2>Did you want to modify <a href="/foods/<%= @food.id %>/edit" ><%= @food.name %></a>?</h2>
+
+<form action="/foods/<%= @food.id %>" method="post"/>
+<input type="hidden" name="_method" value="delete" />
+<input type="submit" value="Goodbye Food">
+</form>
