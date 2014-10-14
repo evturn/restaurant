@@ -1,0 +1,7 @@
+<h2>Did you want to update <a href="/parties/<%= @party.id %>/edit" ><%= @party.name %>, party of <%= @party.size %></a>?</h2>
+
+<h2>Or Leave.</h2>
+<form action="/foods/<%= @party.id %>" method="post"/>
+<input type="hidden" name="_method" value="delete" />
+<input type="submit" value="Leave">
+</form>

@@ -9,7 +9,8 @@ CREATE TABLE foods (
 	);
 
 CREATE TABLE parties (
-	id SERIAL PRIMARY KEY, 
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(50), 
 	size INTEGER
 	);
 
@@ -20,13 +21,29 @@ CREATE TABLE orders (
 	);
 
 INSERT INTO foods (name, price)
-	VALUES ('Hamburger', 5);
+	VALUES ('Baked Noodles', 5);
 
 INSERT INTO foods (name, price)
-	VALUES ('Pizza', 5);
+	VALUES ('Chocolate Covered Beef Sticks', 5);
 
 INSERT INTO foods (name, price)
 	VALUES ('Plain Ass Sandwich', 5);
 
 INSERT INTO foods (name, price)
 	VALUES ('Salad', 5);
+
+INSERT INTO parties (name, size)
+	VALUES ('Martha', 1);
+
+INSERT INTO parties (name, size)
+	VALUES ('Graig', 5);
+
+INSERT INTO parties (name, size)
+	VALUES ('Dandrew', 3);
+
+INSERT INTO parties (name, size)
+	VALUES ('Fill-up', 17);
+
+
+
+
