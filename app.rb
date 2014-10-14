@@ -2,6 +2,7 @@ require 'bundler'
 Bundler.require
 
 require_relative 'models/food'
+require_relative 'models/party'
 
 ActiveRecord::Base.establish_connection({
 	adapter: 'postgresql',
@@ -11,6 +12,8 @@ ActiveRecord::Base.establish_connection({
 get '/' do
 
 end
+
+# ------Food-------
 
 get '/foods' do
 	@foods = Food.all
@@ -48,6 +51,52 @@ delete '/foods/:id' do
 	Food.destroy(params[:id])
 	redirect '/foods'
 end
+
+# ------Party-------
+
+
+get '/parties' do
+	@parties = Party.all
+
+	erb :'party/index'
+end
+
+get '/parties/new' do
+
+	erb :'party/new'
+end
+
+get '/parties/:id' do
+	@party = Party.find(params[:id])
+	erb :'party/show'
+end
+
+post '/parties' do
+	party = Party.create(params[:party])
+	redirect '/parties'
+end
+
+get '/parties/:id/edit' do
+	@party = Party.find(params[:id])
+	erb :'party/edit'
+end
+
+patch '/parties/:id' do
+	party = Party.find(params[:id])
+	party.update(params[:party])
+	party.save
+	redirect '/parties'
+end
+
+delete '/parties/:id' do
+	Party.destroy(params[:id])
+	redirect '/parties'
+end
+
+
+
+
+
 
 
 
