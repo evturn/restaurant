@@ -3,6 +3,8 @@ Bundler.require
 
 require_relative 'models/food'
 require_relative 'models/party'
+require_relative 'models/order'
+
 
 ActiveRecord::Base.establish_connection({
 	adapter: 'postgresql',
@@ -94,8 +96,17 @@ delete '/parties/:id' do
 end
 
 
+jane = Party.create({name: "Jane", size: 3})
+dinner = Food.create({name: "Cheese Pie", price: 5})
 
+evening = Order.create({party: jane, food: dinner})
 
+# --------Order--------
+
+# post '/orders' do
+# Order.create(params[:id])
+
+# end
 
 
 
