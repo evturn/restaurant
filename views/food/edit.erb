@@ -1,0 +1,9 @@
+<h2>You want to change your order?</h2>
+<h3>Not a problem, but you're being pretty difficult</h3>
+
+<form action="/foods/<%= @food.id %>" method="post"/>
+<input type="hidden" name="_method" value="patch" />
+<input type="text" name="food[name]" value="<%= @food.name %>" />
+<input type="text" name="food[price]" value="<%= @food.price %>" />
+<input type="submit" value="Change It">
+</form>
