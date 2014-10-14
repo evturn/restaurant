@@ -28,6 +28,7 @@ get '/foods/new' do
 end
 
 get '/foods/:id' do
+	@parties = Party.all
 	@food = Food.find(params[:id])
 	erb :'food/show'
 end
@@ -96,17 +97,23 @@ delete '/parties/:id' do
 end
 
 
-jane = Party.create({name: "Jane", size: 3})
-dinner = Food.create({name: "Cheese Pie", price: 5})
+# jane = Party.create({name: "Jane", size: 3})
 
-evening = Order.create({party: jane, food: dinner})
+# dinner = Food.create({name: "Cheese Pie", price: 5})
+
+# evening = Order.create({party: jane, food: dinner})
 
 # --------Order--------
 
-# post '/orders' do
-# Order.create(params[:id])
+post '/orders' do
 
-# end
+	# order = Order.create(params[:id])
+	food = Food.find(params[:id])
+	party = Party.find(params[:id])
+
+
+	redirect '/foods'
+end
 
 
 
