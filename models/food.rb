@@ -1,3 +1,4 @@
 class Food < ActiveRecord::Base
-	has_many(:foods)
+	has_many(:orders)
+	has_many(:parties, :through => :orders)
 end
