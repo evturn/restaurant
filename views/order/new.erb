@@ -1,22 +1,11 @@
-<h2>
-	<a href="/parties/<%= @party_id %>/edit">Update Party</a>
-	<a href="/foods/<%= @food_id %>/edit">Update Food</a>
-	<a href="/orders/<%= @order_id %>">Your Order</a>
-
-
-</h2>
-
-
-<h1>Current Orders</h1>
-
-
-
-<ul>
-<% @orders.each do |order| %>
-	<li>
-		<a href="/orders/<%= order.id%>">Is right here</a>
-	</li>
-	<% end %>
-</ul>
-</h2>
+<% if @errors %>
+<div class="errors">
+<h1>Looks as if you have <%= @errors.count %> <%= @errors.count == 1 ? "ERROR" : "ERRORS" %>.</h1>
+  <ul>
+    <% @errors.each do |error|  %>
+      <li><h2><%= error %></h2></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 

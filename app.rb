@@ -21,10 +21,14 @@ end
 
 post '/orders' do
 	@party = Party.create(params[:party])
-	@food = Food.create(params[:food])
-	@order = Order.create({ party_id: @party.id, food_id: @food.id })
+	# @food = Food.create(params[:food])
+	
+	
+  @food = Food.find_or_create_by(params[:name])
 
-	redirect "/orders/#{@order.id}"
+  @order = Order.create({ party_id: @party.id, food_id: @food.id })
+
+  redirect "/orders/#{@order.id}"
 end
 
 get '/orders/:id' do
