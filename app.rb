@@ -12,6 +12,35 @@ ActiveRecord::Base.establish_connection({
 	})
 
 
+# --------Order--------
+
+get '/' do
+
+	erb :'order/index'
+end
+
+post '/orders' do
+	@party = Party.create(params[:party])
+	@food = Food.create(params[:food])
+	@order = Order.create({ party_id: @party.id, food_id: @food.id })
+
+	redirect "/orders/#{@order.id}"
+end
+
+
+
+get '/orders/:id' do
+	@order = Order.find(params[:id])
+	@order_food = @order.food
+	@order_party = @order.party
+	
+
+
+
+
+	erb :'order/show'
+end
+
 
 # ------Food-------
 
@@ -20,7 +49,7 @@ get '/foods' do
 	erb :'food/index'
 end
 
-get "/foods/:party_id/new" do
+get "/foods/:id/new" do
 
 	erb :'food/new'
 end
@@ -104,34 +133,7 @@ delete '/parties/:id' do
 end
 
 
-# --------Order--------
 
-get '/' do
-
-
-	erb :'order/index'
-end
-
-
-
-
-
-post '/orders' do
-	@porder = Party.create(params[:party])
-	@forder = Food.create(params[:food])
-	@order = Order.create({ party_id: @porder.id, food_id: @forder.id })
-
-	redirect "/orders/#{@order.id}"
-end
-
-get '/orders/:order_id' do
-	food = Order.find(params[:food])
-	
-
-
-	erb :'order/show'
-
-end
 
 
 

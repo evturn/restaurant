@@ -1,4 +1,17 @@
 <h2>
+Your Order
+<ul>
+<%= @order_party.name%>,
+party of <%= @order_party.size %> ordered:
 
-HELLO FUCKFACE
+<li>
+	Food: <%= @order_food.name %>
+	</li>
+	<li>
+	Price: $<%= @order_food.price %>
+<li>
+
+</ul>
+
+
 </h2>
