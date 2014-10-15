@@ -12,6 +12,7 @@ ActiveRecord::Base.establish_connection({
 	})
 
 
+
 # --------Order--------
 
 get '/' do
@@ -20,15 +21,16 @@ get '/' do
 end
 
 post '/orders' do
-	@party = Party.create(params[:party])
-	# @food = Food.create(params[:food])
-	
-	
-  @food = Food.find_or_create_by(params[:name])
+	# get the party id from params and find the party 
+	# if params {id: 3} then params[:id]
+	# if params {party_id: 3} then params[:party_id]
+ #  if params {party: {id: 3}, food: { id: 2}}
+ #  params[:party][:id]
+ # get the food id from params and then find the food 
+	@party = Party.find_or_create_by(params[:party_id])
 
-  @order = Order.create({ party_id: @party.id, food_id: @food.id })
 
-  redirect "/orders/#{@order.id}"
+  redirect "/orders/#{@party.id}"
 end
 
 get '/orders/:id' do
