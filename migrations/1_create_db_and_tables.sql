@@ -10,23 +10,24 @@ CREATE TABLE orders (
 
 CREATE TABLE foods (
 	id SERIAL PRIMARY KEY,
-	name varchar(100)
+	name varchar(100),
+	price INTEGER
 	);
 
-INSERT INTO foods (name)
-	VALUES ('Bag of Nails');
+INSERT INTO foods (name, price)
+	VALUES ('Bag of Nails', 100);
 
-INSERT INTO foods (name)
-	VALUES ('Plain Ass Sandwich');
+INSERT INTO foods (name, price)
+	VALUES ('Plain Ass Sandwich', 20);
 
-INSERT INTO foods (name)
-	VALUES ('Chocolate Covered Ankle Socks');
+INSERT INTO foods (name, price)
+	VALUES ('Chocolate Covered Ankle Socks', 35);
 
-INSERT INTO foods (name)
-	VALUES ('Gallon of Splenda');
+INSERT INTO foods (name, price)
+	VALUES ('Gallon of Splenda', 50);
 
-INSERT INTO foods (name)
-	VALUES ('The Beef Chicken');
+INSERT INTO foods (name, price)
+	VALUES ('The Beef Chicken', 35);
 
 
 CREATE TABLE parties (

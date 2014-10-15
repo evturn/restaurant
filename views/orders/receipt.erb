@@ -1,0 +1,20 @@
+<center>
+
+<h3>As always, a sincere thanks, but we can't believe you eat this shit</h3>
+
+
+  <table style="width:75%">
+    <th colspan="3">MAXWELL'S BAR & BABY FOOD</th>
+      <tr>
+        <th>FOOD</th>
+        <th>PRICE</th>
+      </tr>
+      <tr>
+        <th><%= @order.food.name %></th>
+        <th>$<%= @order.food.price %></th>
+      </tr>
+  </table>
+
+<a href="/orders/<%= @order.id %>/thank_you"><h1>Pay Now</h1></a>
+
+</center>
