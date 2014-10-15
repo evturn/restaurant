@@ -106,34 +106,30 @@ end
 
 # --------Order--------
 
-
-get '/orders' do
-	@orders = Order.all
-	@foods = Food.all
-	@parties = Party.all
+get '/' do
 
 
 	erb :'order/index'
 end
 
-get '/' do
 
 
-	erb :'order/new'
-end
+
 
 post '/orders' do
 	@porder = Party.create(params[:party])
 	@forder = Food.create(params[:food])
 	@order = Order.create({ party_id: @porder.id, food_id: @forder.id })
 
-	redirect '/orders'
+	redirect "/orders/#{@order.id}"
 end
 
-get '/orders/:id' do
-	@your_order = Order.find(params[:id])
-	@your_party = @party.foods
-	erb :'party/show'
+get '/orders/:order_id' do
+	food = Order.find(params[:food])
+	
+
+
+	erb :'order/show'
 
 end
 
