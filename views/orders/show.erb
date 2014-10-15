@@ -3,10 +3,13 @@
 		<br>
 			<%= @order.food %>
 		<br>
+		
+	<li>
+		<br>
 		<form action="/orders/<%= @order.id %>" method="post" />
 			<input type="hidden" name="_method" value="delete" />
-			<input type="hidden" name="order" value="order"/>
+			<input type="hidden" name="party_id" value="<%= @order.party.id %>">
 			<input type="submit" value="Remove Item" />
 		</form>
-
+	
 </h1>
