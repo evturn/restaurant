@@ -51,6 +51,17 @@ delete '/orders/:id' do
 	redirect "/parties/#{party_id}"
 end
 
+get '/orders/:id/receipt' do
+	@order = Order.find(params[:id])
+
+	erb :'orders/receipt'
+end
+
+get '/orders/:id/thank_you' do
+	@order = Order.find(params[:id])
+
+	erb :'orders/paid'
+end
 
 # get '/orders/:id/edit' do
 # 	@order = Order.find(params[:id])
