@@ -1,0 +1,12 @@
+<h1>
+	<%= @order.party.name %>'s order
+		<br>
+			<%= @order.food %>
+		<br>
+		<form action="/orders/<%= @order.id %>" method="post" />
+			<input type="hidden" name="_method" value="delete" />
+			<input type="hidden" name="order" value="order"/>
+			<input type="submit" value="Remove Item" />
+		</form>
+
+</h1>
