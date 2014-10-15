@@ -48,7 +48,7 @@ patch '/orders/:id' do
 	@order.food
 	@order.food.update(params[:food])
 	@order.save
-	redirect '/orders'
+	redirect "/orders/#{@order.id}"
 end
 
 # ------Food-------
