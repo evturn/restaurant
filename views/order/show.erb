@@ -1,5 +1,5 @@
 <h2>
-Your Order
+<a href="/orders/<%= @order.id %>/edit">MODIFY YOUR ORDER</a>
 <ul>
 <%= @order_party.name %>,
 party of <%= @order_party.size %> ordered:
@@ -12,6 +12,12 @@ party of <%= @order_party.size %> ordered:
 <li>
 
 </ul>
+
+DELETE ENTIRE ORDER
+<form action="/orders/<%= @order.id %>" method="post"/>
+<input type="hidden" name="_method" value="delete" />
+<input type="submit" value="Delete">
+</form>
 
 
 </h2>
