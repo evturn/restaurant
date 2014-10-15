@@ -53,6 +53,11 @@ patch '/orders/:id' do
 	redirect "/orders/#{@order.id}"
 end
 
+delete '/orders/:id' do
+	Order.destroy(params[:id])
+	redirect '/'
+end
+
 
 
 # ------Food-------
