@@ -27,20 +27,29 @@ post '/orders' do
 	redirect "/orders/#{@order.id}"
 end
 
-
-
 get '/orders/:id' do
 	@order = Order.find(params[:id])
 	@order_food = @order.food
 	@order_party = @order.party
-	
-
-
-
 
 	erb :'order/show'
 end
 
+get '/orders/:id/edit' do
+	@order = Order.find(params[:id])
+	@order_food = @order.food
+	@order_party = @order.party
+
+	erb :'order/edit'
+end
+
+patch '/orders/:id' do
+	order = Order.find(params[:id])
+	@order_food = @order.food
+	@order_food.update(params[:food])
+	@revised_food.save
+	redirect '/foods'
+end
 
 # ------Food-------
 
