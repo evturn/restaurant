@@ -46,10 +46,14 @@ end
 patch '/orders/:id' do
 	@order = Order.find(params[:id])
 	@order.food
+	@order.party
 	@order.food.update(params[:food])
+	@order.party.update(params[:party])
 	@order.save
 	redirect "/orders/#{@order.id}"
 end
+
+
 
 # ------Food-------
 
