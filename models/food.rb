@@ -3,6 +3,6 @@ class Food < ActiveRecord::Base
 	has_many(:orders)
 	has_many(:parties, :through => :orders)
 	def to_s
-    name? ? "You ordered: #{name}" : "I don't have a name ;("
+    name? ? "Item: #{name}" : "You haven't ordered."
   end
 end
