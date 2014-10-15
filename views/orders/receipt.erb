@@ -11,10 +11,14 @@
       </tr>
       <tr>
         <th><%= @order.food.name %></th>
-        <th>$<%= @order.food.price %></th>
+        <th>Subtotal: $<%= @order.food.price %></th>
       </tr>
+  </table><table style="width:75%">
+    <th>Total: $<%= (@order.food.price * 1.7).to_i %></th>
   </table>
-
+  <table style="width:75%">
+    <th>70% GRATUITITY INCLUDED FOR PARTIES OF 0 OR MORE</th>
+  </table>
 <a href="/orders/<%= @order.id %>/thank_you"><h1>Pay Now</h1></a>
 
 </center>

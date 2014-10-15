@@ -59,7 +59,7 @@ end
 
 get '/orders/:id/thank_you' do
 	@order = Order.find(params[:id])
-
+	
 	erb :'orders/paid'
 end
 
