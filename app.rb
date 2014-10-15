@@ -44,11 +44,11 @@ get '/orders/:id/edit' do
 end
 
 patch '/orders/:id' do
-	order = Order.find(params[:id])
-	@order_food = @order.food
-	@order_food.update(params[:food])
-	@revised_food.save
-	redirect '/foods'
+	@order = Order.find(params[:id])
+	@order.food
+	@order.food.update(params[:food])
+	@order.save
+	redirect '/orders'
 end
 
 # ------Food-------
