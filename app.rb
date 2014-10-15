@@ -46,10 +46,9 @@ get '/orders/:id' do
 end
 
 delete '/orders/:id' do
+	party_id = params[:party_id]
 	Order.delete(params[:id])
-	
-
-	redirect "/parties/#{@party.id}"
+	redirect "/parties/#{party_id}"
 end
 
 
