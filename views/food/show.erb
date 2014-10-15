@@ -1,9 +1,9 @@
 <h2>Did you want to modify <a href="/foods/<%= @food.id %>/edit" ><%= @food.name %></a>?</h2>
 
 	<ul>
-		<% @parties.each do |name| %>
+		<% @food_parties.each do |party| %>
 		<li>
-		<%= name.name %> has ordered this.
+		<%= party.name %> has ordered this.
 		</li>
 		<% end %>
 	<ul>
