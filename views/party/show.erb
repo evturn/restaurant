@@ -1,13 +1,17 @@
 <h2>Did you want to update <a href="/parties/<%= @party.id %>/edit" ><%= @party.name %>, party of <%= @party.size %></a>?</h2>
 
+<% @party_foods.each do |food| %>
 
-<h2>Add some food, making you better feeling</h2>
+<h2>So far you have ordered <%= food.name %></h2>
+
+<% end %>
+
+<h2>Add some more food, making you better feeling</h2>
 <form action="/orders" method="post" />
 <input type="text" placeholder="Food" name="food[name]" />
 <input type="text" placeholder="Your Price" name="food[price]" />
 <input type="submit" value="Add that shit">
 </form>
-
 
 <h2>Or Leave.</h2>
 <form action="/foods/<%= @party.id %>" method="post"/>

@@ -11,9 +11,7 @@ ActiveRecord::Base.establish_connection({
 	dbname: 'restaurant_db'
 	})
 
-get '/' do
 
-end
 
 # ------Food-------
 
@@ -22,20 +20,21 @@ get '/foods' do
 	erb :'food/index'
 end
 
-get '/foods/new' do
+get "/foods/:party_id/new" do
 
 	erb :'food/new'
 end
 
 get '/foods/:id' do
-	@parties = Party.all
 	@food = Food.find(params[:id])
+	@food_parties = @food.parties
+
 	erb :'food/show'
 end
 
 post '/foods' do
 	food = Food.create(params[:food])
-	redirect '/foods'
+	redirect '/orders'
 end
 
 get '/foods/:id/edit' do
@@ -55,8 +54,15 @@ delete '/foods/:id' do
 	redirect '/foods'
 end
 
+#
 # ------Party-------
-
+#
+#
+#
+#
+#
+#
+#
 
 get '/parties' do
 	@parties = Party.all
@@ -71,12 +77,13 @@ end
 
 get '/parties/:id' do
 	@party = Party.find(params[:id])
+	@party_foods = @party.foods
 	erb :'party/show'
 end
 
 post '/parties' do
 	party = Party.create(params[:party])
-	redirect '/parties'
+	redirect "/foods/#{party.id}/new"
 end
 
 get '/parties/:id/edit' do
@@ -97,24 +104,46 @@ delete '/parties/:id' do
 end
 
 
-# jane = Party.create({name: "Jane", size: 3})
-
-# dinner = Food.create({name: "Cheese Pie", price: 5})
-
-# evening = Order.create({party: jane, food: dinner})
-
 # --------Order--------
 
+
+get '/orders' do
+	@orders = Order.all
+	@foods = Food.all
+	@parties = Party.all
+
+
+	erb :'order/index'
+end
+
+get '/' do
+
+
+	erb :'order/new'
+end
+
 post '/orders' do
+	@porder = Party.create(params[:party])
+	@forder = Food.create(params[:food])
+	@order = Order.create({ party_id: @porder.id, food_id: @forder.id })
 
-	# order = Order.create(params[:id])
-	food = Food.find(params[:id])
-	party = Party.find(params[:id])
+	redirect '/orders'
+end
 
+get '/orders/:id' do
+	@your_order = Order.find(params[:id])
+	@your_party = @party.foods
+	erb :'party/show'
 
-	redirect '/foods'
 end
 
 
 
 
+
+
+# jane = Party.create({name: "McBain", size: 99})
+
+# dinner = Food.create({name: "Cinder Blocks", price: 5})
+
+# evening = Order.create({party: jane, food: dinner})

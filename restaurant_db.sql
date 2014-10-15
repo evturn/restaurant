@@ -30,7 +30,7 @@ INSERT INTO foods (name, price)
 	VALUES ('Plain Ass Sandwich', 5);
 
 INSERT INTO foods (name, price)
-	VALUES ('Salad', 5);
+	VALUES ('Chocolate Covered Beef Sticks', 5);
 
 INSERT INTO parties (name, size)
 	VALUES ('Martha', 1);
