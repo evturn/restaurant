@@ -1,22 +1,9 @@
-<h2>
-	<a href="/parties/:id/edit">Update Party</a>
-	<a href="/foods/:id/edit">Update Food</a>
-	<a href="/orders/:id">Your Order</a>
 
+<form action="/orders" method="post" />
+<input type="text" placeholder="Name" name="party[name]" />
+<input type="text" placeholder="Size" name="party[size]" />
 
-</h2>
-
-
-<h1>Current Orders</h1>
-
-
-
-<ul>
-<% @orders.each do |order| %>
-	<li>
-		<a href="/orders/<%= order.id%>"></a>
-	</li>
-	<% end %>
-</ul>
-</h2>
-
+<input type="text" placeholder="Food" name="food[name]" />
+<input type="text" placeholder="Your Price" name="food[price]" />
+<input type="submit" value="BLEND IT!">
+</form>
