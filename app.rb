@@ -22,7 +22,6 @@ end
 
 post '/parties' do
 	@party = Party.create(params[:party])
-
   redirect "/parties/#{@party.id}"
 end
 
@@ -35,14 +34,24 @@ end
 
 post '/orders' do
 	@order = Order.create(params)
-
 	redirect "/orders/#{@order.id}"
 end
 
 get '/orders/:id' do
 	@order = Order.find(params[:id])
+	@food = Food.all
+	
 
 	erb :'orders/show'
+end
+
+patch '/parties/:id' do
+	@party = Party.find(params[:id])
+
+  @order = Order.create(params[:food])
+  
+  
+	redirect "/orders/#{@order.id}"
 end
 
 delete '/orders/:id' do

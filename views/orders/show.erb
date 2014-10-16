@@ -11,7 +11,22 @@
 			<div class="myButton3">
 			<input type="submit" value="Remove Item" />
 		</form>
+	</div>
 
-		
+
+	<ul>
+		<% @food.each do |f| %>
+			<li>
+				<!-- <%= f.name %> -->
+				<form action="/parties/<%= @party_id %>" method="post" />
+				  <input type="hidden" name="_method" value="patch" />
+					<input type="hidden" name="food_id" value="<%= f.id %>"/>
+					<input type="hidden" name="party_id" value="<%= @party %>"/>
+					<div class="myButton4">
+					<input type="submit" value="<%= f.name %>" />
+					</div>
+				</form>
+			</li>
+		<% end %>
 	</div>
 </h1>
