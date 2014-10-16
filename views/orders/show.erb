@@ -1,23 +1,13 @@
 <h1>
-	<%= @order.party.name %>'s order
+	<%= @party.name %>'s order
 		<br>
-			<%= @order.food %>
+			<%= @party.foods %>
 		<br>
-			<a href="/orders/<%= @order.id %>/receipt">Checkout</a>
-		<br>
-		<form action="/orders/<%= @order.id %>" method="post" />
-			<input type="hidden" name="_method" value="delete" />
-			<input type="hidden" name="party_id" value="<%= @order.party.id %>">
-			<div class="myButton3">
-			<input type="submit" value="Remove Item" />
-		</form>
-	</div>
-
+			<a href="/parties/<%= @party.id %>/receipt">Checkout</a>
 
 	<ul>
-		<% @food.each do |f| %>
+		<% @foods.each do |f| %>
 			<li>
-				<!-- <%= f.name %> -->
 				<form action="/parties/<%= @party.id %>" method="post" />
 				  <input type="hidden" name="_method" value="patch" />
 					<input type="hidden" name="food_id" value="<%= f.id %>"/>

@@ -6,7 +6,7 @@
 		<% @food.each do |f| %>
 			<li>
 				<!-- <%= f.name %> -->
-				<form action="/parties" method="post" />
+				<form action="/parties/<%= @party.id%>" method="post" />
 					<input type="hidden" name="food_id" value="<%= f.id %>"/>
 					<input type="hidden" name="party_id" value="<%= @party.id %>"/>
 					<div class="myButton4">
