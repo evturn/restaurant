@@ -20,6 +20,8 @@ get '/' do
 	erb :'orders/index'
 end
 
+
+
 post '/parties' do
 	@party = Party.create(params[:party])
   redirect "/parties/#{@party.id}"
@@ -40,7 +42,7 @@ end
 get '/orders/:id' do
 	@order = Order.find(params[:id])
 	@food = Food.all
-	
+	@party = Party.find(params)
 
 	erb :'orders/show'
 end
