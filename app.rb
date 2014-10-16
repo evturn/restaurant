@@ -17,7 +17,7 @@ ActiveRecord::Base.establish_connection({
 
 get '/' do
 
-	erb :'orders/index'
+	erb :index
 end
 
 
@@ -34,15 +34,24 @@ get '/parties/:id' do
 	erb :'parties/show'
 end
 
-post '/orders' do
+post '/parties' do
 	@order = Order.create(params)
-	redirect "/orders/#{@order.id}"
+	@party = Party.find(params[:id])
+	redirect "/parties/#{@party.id}/orders"
 end
+
+get '/parties/:id/orders' do
+	@order = Order.create(params)
+	@party = Party.find(params[:id])
+
+	erb :'orders/show'
+end
+
 
 get '/orders/:id' do
 	@order = Order.find(params[:id])
 	@food = Food.all
-	@party = Party.find(params)
+	
 
 	erb :'orders/show'
 end
