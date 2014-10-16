@@ -4,8 +4,8 @@ CREATE DATABASE restaurant_db;
 
 CREATE TABLE orders (
 	id SERIAL PRIMARY KEY,
-	food_id INTEGER not null,
-	party_id INTEGER not null
+	food_id INTEGER,
+	party_id INTEGER
 	);
 
 CREATE TABLE foods (
