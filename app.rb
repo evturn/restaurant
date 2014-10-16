@@ -59,8 +59,18 @@ end
 
 get '/orders/:id/thank_you' do
 	@order = Order.find(params[:id])
-	
+
+
 	erb :'orders/paid'
+end
+
+get '/orders/:id/print' do
+	@order = Order.find(params[:id])
+	File.open('./receipt.txt', 'a+') { |f| f.write("#{@order.food.name} for a subtotal of #{@order.food.price} and a grand total of (#{@order.food.price}.to_i * 1.7.to_i)") }
+	
+	send_file('./receipt.txt')
+
+	erb :'orders/print'
 end
 
 # get '/orders/:id/edit' do
