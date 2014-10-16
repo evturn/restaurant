@@ -18,7 +18,7 @@
 		<% @food.each do |f| %>
 			<li>
 				<!-- <%= f.name %> -->
-				<form action="/parties/<%= @party_id %>" method="post" />
+				<form action="/parties/<%= @party.id %>" method="post" />
 				  <input type="hidden" name="_method" value="patch" />
 					<input type="hidden" name="food_id" value="<%= f.id %>"/>
 					<input type="hidden" name="party_id" value="<%= @party %>"/>
