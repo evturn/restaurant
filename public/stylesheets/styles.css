@@ -11,6 +11,7 @@ li {
 	list-style: none;
 }
 
+
 div.myButton3 input {
     cursor:pointer;
     width: 200px;
@@ -34,14 +35,18 @@ div.myButton4 input {
 table, th, td {
     border: 3px solid black;
     border-collapse: collapse;
-    color: black;
-    text-shadow: 3px 3px 3px white;
-
+    color: white;
+    text-shadow: 15px 5px 15px 5px black;
+    
 }
 th, td {
-    padding: 15px;
+    padding: 20px;
 }	
 table {
 	 background-image: url(http://www.ametech.co.uk/ekmps/shops/ametech/resources/Design/bigstock-set-of-iron-nails-10455530.jpg);
 	 background-position: 100%;
+}
+
+div {
+
 }

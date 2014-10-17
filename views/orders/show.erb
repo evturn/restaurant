@@ -1,22 +1,50 @@
-<h1>
-	<%= @party.name %>'s order
-		<br>
-			<%= @party.foods %>
-		<br>
-			<a href="/parties/<%= @party.id %>/receipt">Checkout</a>
+			<h1>
+			<%= @party.name %>'s order</h1>
+				<table>
+					<tr>	
+						<h3>
+							<% @party.foods.each do |food| %>
+								<td>
+									<%= food.name %>
+								</td>
+								<td>
+<!-- 									<form action="/parties/<%= @party.id %>/orders" method="post">
+										<input type="hidden" name="food_id" value="<%= food.id %>" >
+										<input type="hidden" name="_method" value="delete" >
+										<div class="myButton3">
+										<input type="submit" value="Remove" >
+										</div>
+									</form>
 
-	<ul>
-		<% @foods.each do |f| %>
-			<li>
-				<form action="/parties/<%= @party.id %>" method="post" />
-				  <input type="hidden" name="_method" value="patch" />
-					<input type="hidden" name="food_id" value="<%= f.id %>"/>
-					<input type="hidden" name="party_id" value="<%= @party %>"/>
-					<div class="myButton4">
-					<input type="submit" value="<%= f.name %>" />
-					</div>
-				</form>
-			</li>
-		<% end %>
-	</div>
-</h1>
+
+ -->								
+								<form action="/parties/<%= @party.id %>/orders" method="post">
+									<input type="hidden" name="_method" value="delete">
+									<input type="hidden" name="food_id" value="<%= food.id %>" >
+									<input type="submit" value='Delete'>
+								</form>
+								</td>
+							<% end %>
+						</h3>
+					</tr>
+				</table>
+			<div>
+			<h1>
+			<a href="/parties/<%= @party.id %>/receipt">Checkout</a>
+			</h1>
+				<h2>
+					<ul>
+						<% @foods.each do |f| %>
+							<li>
+								<form action="/parties/<%= @party.id %>" method="post" />
+								  <input type="hidden" name="_method" value="patch" />
+									<input type="hidden" name="food_id" value="<%= f.id %>"/>
+									<input type="hidden" name="party_id" value="<%= @party %>"/>
+									<div class="myButton4">
+									<input type="submit" value="<%= f.name %>" />
+									</div>
+								</form>
+							</li>
+						<% end %>
+					</ul>
+					</h2>
