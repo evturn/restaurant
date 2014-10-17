@@ -46,6 +46,7 @@ get '/parties/:id/orders' do
 	@party = Party.find(params[:id])
 	@foods = Food.all
 	
+	
 	erb :'orders/show'
 end
 
@@ -53,6 +54,7 @@ patch '/parties/:id' do
 	@party = Party.find(params[:id])
   @food = params[:food_id]
 	@order = Order.create({food_id: @food, party_id: @party.id})
+
   
 	redirect "/parties/#{@party.id}/orders"
 end
@@ -61,26 +63,29 @@ end
 get '/orders/:id' do
 	@order = Order.find(params[:id])
 	@food = Food.all
-	
 	erb :'orders/show'
 end
 
 get '/parties/:id/receipt' do
+	@party = Party.find(params[:id])
 	
-
+	
+	@names = @party.foods.map { |food| food.name }
+	@costs = @party.foods.map { |food| food.price }
 	erb :'orders/receipt'
 end
 
-delete '/orders/:id' do
-	party_id = params[:party_id]
-	Order.delete(params[:id])
-	redirect "/parties/#{party_id}"
+delete '/parties/:id/orders' do
+	party = Party.find(params[:id])
+	food  = Food.find(params[:food_id])
+	Order.find_by(party: party, food: food).destroy
+	redirect "/parties/#{party.id}/orders"
 end
 
-get '/orders/:id/thank_you' do
-	@order = Order.find(params[:id])
+get '/parties/:id/thank_you' do
+	@party = Party.find(params[:id])
 
-	erb :'orders/paid'
+	erb :'parties/paid'
 end
 
 get '/orders/:id/print' do

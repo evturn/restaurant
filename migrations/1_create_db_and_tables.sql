@@ -15,19 +15,35 @@ CREATE TABLE foods (
 	);
 
 INSERT INTO foods (name, price)
-	VALUES ('Bag of Nails', 100);
-
-INSERT INTO foods (name, price)
 	VALUES ('Plain Ass Sandwich', 20);
 
 INSERT INTO foods (name, price)
-	VALUES ('Chocolate Covered Ankle Socks', 35);
+	VALUES ('Turkey Club Burrito', 40);	
 
 INSERT INTO foods (name, price)
-	VALUES ('Gallon of Splenda', 50);
+	VALUES ('Soup du Garden Hose', 55);
 
 INSERT INTO foods (name, price)
 	VALUES ('The Beef Chicken', 35);
+
+INSERT INTO foods (name, price)
+	VALUES ('Tripe Shake', 50);
+
+INSERT INTO foods (name, price)
+	VALUES ('A Rake', 23);	
+
+INSERT INTO foods (name, price)
+	VALUES ('Salad Dressing Bowl', 3);
+
+INSERT INTO foods (name, price)
+	VALUES ('Bag of Nails', 100);
+
+INSERT INTO foods (name, price)
+	VALUES ('Water Covered Cinder Blocks', 35);
+
+INSERT INTO foods (name, price)
+	VALUES ('Gallon of Splenda', 50);
+	
 
 
 CREATE TABLE parties (

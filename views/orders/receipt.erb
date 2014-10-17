@@ -2,24 +2,27 @@
 
 <h3>As always, a sincere thanks, but we can't believe you eat this shit</h3>
 
-
   <table style="width:75%">
-    <th colspan="3">MAXWELL'S BAR & BABY FOOD</th>
+    <th colspan="100%">MAXWELL'S BAR & BABY FOOD</th>
       <tr>
-        <th>FOOD</th>
-        <th>PRICE</th>
+      <th>FOOD</th>
+      <%  @names.each do |name| %>
+        <td><%= name %></td>
+        <% end %>
       </tr>
       <tr>
-        <th><%= @order.food.name %></th>
-        <th>Subtotal: $<%= @order.food.price %></th>
+        <th>PRICE</th>
+      <%  @costs.each do |cost| %>
+        <td>$<%= cost %></td>
+        <% end %>
       </tr>
   </table>
   <table style="width:75%">
-    <th>Total: $<%= (@order.food.price * 1.7).to_i %></th>
+    <th>Total: $<%=( @costs.sum  * 1.7).to_i %></th>
   </table>
   <table style="width:75%">
     <th>70% GRATUITITY INCLUDED FOR PARTIES OF 0 OR MORE</th>
   </table>
-<a href="/orders/<%= @order.id %>/thank_you"><h1>Pay Now</h1></a>
+<a href="/parties/<%= @party.id %>/thank_you"><h1>Pay Now</h1></a>
 
 </center>
