@@ -5,23 +5,39 @@
   <table style="width:75%">
     <th colspan="100%">MAXWELL'S BAR & BABY FOOD</th>
       <tr>
-      <th>FOOD</th>
-      <%  @names.each do |name| %>
-        <td><%= name %></td>
-        <% end %>
-      </tr>
-      <tr>
+        <th>FOOD</th>
         <th>PRICE</th>
-      <%  @costs.each do |cost| %>
-        <td>$<%= cost %></td>
-        <% end %>
       </tr>
-  </table>
-  <table style="width:75%">
-    <th>Total: $<%=( @costs.sum  * 1.7).to_i %></th>
-  </table>
-  <table style="width:75%">
-    <th>70% GRATUITITY INCLUDED FOR PARTIES OF 0 OR MORE</th>
+      
+      <% @party.foods.each do |food| %>
+      <tr>
+        <td><%= food.name.upcase %></td>
+        <td><%= food.price %></td>
+      </tr>
+        <% end %>
+      
+   <!--    <tr>
+        <%  @names.each do |name| %>
+        
+        <td><%= name %></td>
+          
+          <% end %>
+      </tr>
+  
+      
+      <% @costs.each do |cost| %>
+        
+        <td>$<%= cost %></td>
+        
+        <% end %> -->
+    
+  
+    <tr>
+    <th colspan="100%">Total: $<%=( @costs.sum  * 1.7).to_i %></th>
+  </tr>
+  <tr>
+    <th colspan="100%">70% GRATUITITY INCLUDED FOR PARTIES OF 0 OR MORE</th>
+  </tr>
   </table>
 <a href="/parties/<%= @party.id %>/thank_you"><h1>Pay Now</h1></a>
 

@@ -1,41 +1,42 @@
-			<h1>
-			<%= @party.name %>'s order</h1>
-				<table>
-					<tr>	
+		<div>
+			<center>
+			<h2>
+			<a href="/parties/<%= @party.id %>/receipt">PROCEED TO CHECKOUT</a>
+			</h2>
+		</center>
+		</div>
+		
+		<div class="left block">
+			
+			
+				<table>	
 						<h3>
+							<th colspan="100%"><%= @party.name %>'s order</th>
 							<% @party.foods.each do |food| %>
+							<tr>
+								<td><%= food.name.upcase %></td>				
 								<td>
-									<%= food.name %>
-								</td>
-								<td>
-<!-- 									<form action="/parties/<%= @party.id %>/orders" method="post">
+									<form action="/parties/<%= @party.id %>/orders" method="post">
+										<input type="hidden" name="_method" value="delete">
 										<input type="hidden" name="food_id" value="<%= food.id %>" >
-										<input type="hidden" name="_method" value="delete" >
 										<div class="myButton3">
-										<input type="submit" value="Remove" >
+										<input type="submit" value='Remove'>
 										</div>
 									</form>
-
-
- -->								
-								<form action="/parties/<%= @party.id %>/orders" method="post">
-									<input type="hidden" name="_method" value="delete">
-									<input type="hidden" name="food_id" value="<%= food.id %>" >
-									<input type="submit" value='Delete'>
-								</form>
 								</td>
+							</tr>
 							<% end %>
 						</h3>
-					</tr>
 				</table>
-			<div>
-			<h1>
-			<a href="/parties/<%= @party.id %>/receipt">Checkout</a>
-			</h1>
+			</div>
+		<div class="right block">
+			<table>
 				<h2>
-					<ul>
+					<th colspan="100%">Menu</th>
+
 						<% @foods.each do |f| %>
-							<li>
+								<tr>
+									<td>
 								<form action="/parties/<%= @party.id %>" method="post" />
 								  <input type="hidden" name="_method" value="patch" />
 									<input type="hidden" name="food_id" value="<%= f.id %>"/>
@@ -44,7 +45,9 @@
 									<input type="submit" value="<%= f.name %>" />
 									</div>
 								</form>
-							</li>
+							</td>
+							</tr>
 						<% end %>
-					</ul>
-					</h2>
+				</h2>
+			</table>
+</div>

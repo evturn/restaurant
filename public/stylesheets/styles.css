@@ -5,10 +5,20 @@ body {
 	color: white;
 	font-size: 30px;
 	text-shadow: 1px 2px 3px black;
+    margin: 0px 70px 0px 70px;
 }
 
 li {
 	list-style: none;
+}
+
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
 }
 
 
@@ -36,17 +46,19 @@ table, th, td {
     border: 3px solid black;
     border-collapse: collapse;
     color: white;
-    text-shadow: 15px 5px 15px 5px black;
+    text-shadow: 15px 5px 15px 5px white;
     
 }
 th, td {
     padding: 20px;
 }	
 table {
-	 background-image: url(http://www.ametech.co.uk/ekmps/shops/ametech/resources/Design/bigstock-set-of-iron-nails-10455530.jpg);
+	 background-image: url(http://files.customize.org/download/wallpapers/85987/94706/Brushed_Metal-6080x1080.jpg);
 	 background-position: 100%;
+     text-align: center;
+     width: 85%;
 }
 
-div {
-
+.block {
+    display: block;
 }
