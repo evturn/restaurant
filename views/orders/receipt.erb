@@ -12,7 +12,7 @@
       <% @party.foods.each do |food| %>
       <tr>
         <td><%= food.name.upcase %></td>
-        <td><%= food.price %></td>
+        <td>$<%= food.price %></td>
       </tr>
         <% end %>
       

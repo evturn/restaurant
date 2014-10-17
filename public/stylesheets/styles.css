@@ -11,7 +11,21 @@ body {
 li {
 	list-style: none;
 }
-
+input {
+    border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,1,0,0.1),
+            0 0 16px rgba(0,1,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,1,0,0.1),
+            0 0 16px rgba(0,1,0,0.1); 
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+}
 
 .right {
     float: right;
@@ -20,12 +34,21 @@ li {
 .left {
     float: left;
 }
+div.myButton2 input {
+    cursor:pointer;
+    width: 112px;
+    height: 40px;
+    border: 2px black;
+    font-size: 30px;
+    font-family: calibri;
+    color: black;
+}
 
 
 div.myButton3 input {
     cursor:pointer;
     width: 200px;
-    height: 40px;
+    height: 60px;
     border: 2px black;
     font-size: 30px;
     font-family: calibri;
@@ -34,13 +57,19 @@ div.myButton3 input {
 
 .scalie {
     max-width: 50%;
+}
 
+.maxwell {
+    font-family: verdana;
+    font-size: 18px;
+    max-width: 80%;
+    text-align: justify;
 }
 
 div.myButton4 input {
     cursor:pointer;
     width: 400px;
-    height: 40px;
+    height: 60px;
     border: 2px black;
     font-size: 30px;
     font-family: calibri;
@@ -52,11 +81,13 @@ table, th, td {
     border-collapse: collapse;
     color: white;
     text-shadow: 15px 5px 15px 5px white;
-    
+
 }
+
 th, td {
     padding: 20px;
 }	
+
 table {
 	 background-image: url(http://files.customize.org/download/wallpapers/85987/94706/Brushed_Metal-6080x1080.jpg);
 	 background-position: 100%;

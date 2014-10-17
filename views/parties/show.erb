@@ -1,20 +1,28 @@
-<h1>
-	<%= @party.name %> is currently logged in
-</h1>
-	<center>
+<center>
+	<h1>
+		<%= @party.name %> is currently logged in
+	</h1>
 		<table class="scalie">
 			<th colspan="100%">Menu</th>
 				<% @food.each do |f| %>
-					<tr>
-						<td>
-							<form action="/parties/<%= @party.id%>" method="post" />
-								<input type="hidden" name="food_id" value="<%= f.id %>"/>
-								<input type="hidden" name="party_id" value="<%= @party.id %>"/>
-									<div class="myButton4">
-								<input type="submit" value="<%= f.name %>" />
-									</div>
-							</form>
-						</td>
-					</tr>
+			<tr>
+				<td>
+					<form action="/parties/<%= @party.id%>" method="post" />
+						<input type="hidden" name="food_id" value="<%= f.id %>"/>
+						<input type="hidden" name="party_id" value="<%= @party.id %>"/>
+							<div class="myButton4">
+						<input type="submit" value="<%= f.name %>" />
+							</div>
+					</form>
+				</td>
+			</tr>
 				<% end %>
 		</table>
+</center>	
+<br>
+<center>
+	<div class="maxwell">
+	Maxwell's provides it's customers with a vast array of delicacies that can be found from all over the grounds of the now abandoned Center for Disease Control and Prevention Hospital which is inhabited with thousands of new undiscovered parasites and bacterium that have flourished in a what has proven to be an ideal environment for cell division and rapid colonization due to its unkept and highly toxic conditions which is located directly across the street from our founder's famous neighborhood public pool that was the scene of the infamous Yon Jon Bovi Murders which as a result began to attract a violently dangerous crowd involved in what is described as a world class criminal cesspool of armed convicts with intentions to recruit the youth into strengthing their faction thus resulting in a complete culture and political coup d'état designed to transfer power to drug cartels that resided in the Albanian snow cap mountains in the North American islands of Australia but unforunately closed in 1987 and has since been also abandoned. These delectable items are then blended into pure mush and fed to fully grown adults, such as yourself!
+	</div>
+</center>
+<br>
