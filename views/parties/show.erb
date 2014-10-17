@@ -1,19 +1,20 @@
 <h1>
 	<%= @party.name %> is currently logged in
-		<br>
-			
-	<ul>
-		<% @food.each do |f| %>
-			<li>
-				<!-- <%= f.name %> -->
-				<form action="/parties/<%= @party.id%>" method="post" />
-					<input type="hidden" name="food_id" value="<%= f.id %>"/>
-					<input type="hidden" name="party_id" value="<%= @party.id %>"/>
-					<div class="myButton4">
-					<input type="submit" value="<%= f.name %>" />
-					</div>
-				</form>
-			</li>
-		<% end %>
-	</ul>
 </h1>
+	<center>
+		<table class="scalie">
+			<th colspan="100%">Menu</th>
+				<% @food.each do |f| %>
+					<tr>
+						<td>
+							<form action="/parties/<%= @party.id%>" method="post" />
+								<input type="hidden" name="food_id" value="<%= f.id %>"/>
+								<input type="hidden" name="party_id" value="<%= @party.id %>"/>
+									<div class="myButton4">
+								<input type="submit" value="<%= f.name %>" />
+									</div>
+							</form>
+						</td>
+					</tr>
+				<% end %>
+		</table>

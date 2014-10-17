@@ -45,7 +45,7 @@ end
 get '/parties/:id/orders' do
 	@party = Party.find(params[:id])
 	@foods = Food.all
-	
+
 	
 	erb :'orders/show'
 end
@@ -88,7 +88,7 @@ get '/parties/:id/thank_you' do
 	erb :'parties/paid'
 end
 
-get '/orders/:id/print' do
+get '/parties/:id/print' do
 	@order = Order.find(params[:id])
 	File.open('./receipt.txt', 'a+') { |f| f.write("#{@order.food.name} for a subtotal of #{@order.food.price} and a grand total of (#{@order.food.price}.to_i * 1.7.to_i)") }
 	
