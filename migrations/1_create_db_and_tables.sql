@@ -33,7 +33,7 @@ INSERT INTO foods (name, price)
 	VALUES ('A Rake', 23);	
 
 INSERT INTO foods (name, price)
-	VALUES ('Salad Dressing Bowl', 3);
+	VALUES ('Bowl of Salad Dressing', 3);
 
 INSERT INTO foods (name, price)
 	VALUES ('Bag of Nails', 100);

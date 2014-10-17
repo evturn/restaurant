@@ -32,6 +32,11 @@ div.myButton3 input {
     color: black;
 }
 
+.scalie {
+    max-width: 50%;
+
+}
+
 div.myButton4 input {
     cursor:pointer;
     width: 400px;

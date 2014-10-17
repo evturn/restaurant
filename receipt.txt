@@ -1,0 +1,1 @@
+The Beef Chicken for a subtotal of 35 and a grand total of (35.to_i * 1.7.to_i)Tripe Shake for a subtotal of 50 and a grand total of (50.to_i * 1.7.to_i)
