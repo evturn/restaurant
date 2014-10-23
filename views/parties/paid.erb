@@ -2,4 +2,4 @@
 	<h1>Thanks!</h1>
 		<h5>you bitch.</h5>
 
-<a href="/parties/<%= @party.id %>/print">Print Receipt</a>
+<%= link_to("/parties/#{@party.id}/print", "Print Receipt") %>

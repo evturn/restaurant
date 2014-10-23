@@ -39,6 +39,6 @@
     <th colspan="100%">70% GRATUITITY INCLUDED FOR PARTIES OF 0 OR MORE</th>
   </tr>
   </table>
-<a href="/parties/<%= @party.id %>/thank_you"><h1>Pay Now</h1></a>
+    <h1><%= link_to("/parties/#{@party.id}/thank_you", "Pay Now") %></h1>
 
 </center>
