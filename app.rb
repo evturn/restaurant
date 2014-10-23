@@ -1,9 +1,14 @@
 require 'bundler'
 Bundler.require
 
+
+# **** models ****
 require_relative 'models/food'
 require_relative 'models/party'
 require_relative 'models/order'
+
+# **** helpers ****
+require_relative 'helpers/link_helper'
 
 
 ActiveRecord::Base.establish_connection({
@@ -11,6 +16,12 @@ ActiveRecord::Base.establish_connection({
 	dbname: 'restaurant_db'
 	})
 
+
+# helpers do
+# 	def link_to(url, body)
+# 		"<a href='#{url}'>#{body}</a>"
+# 	end
+# end
 
 
 # --------Order--------
