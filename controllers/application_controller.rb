@@ -13,12 +13,15 @@ class ApplicationController < Sinatra::Base
   set :public_folder, File.expand_path('../../public', __FILE__)
 
 
+  enable :sessions, :method_override
+
   get '/' do
 
     erb :index
   end
 
   get '/orders/:id' do
+    authenticate!
     @order = Order.find(params[:id])
     @food = Food.all
     erb :'orders/show'
