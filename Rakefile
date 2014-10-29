@@ -3,10 +3,11 @@ Bundler.require
 
 require 'sinatra/activerecord/rake'
 
-require_relative 'connection'
-	require_relative 'models/food'
-	require_relative 'models/order'
-	require_relative 'models/party'
+require_relative 'controllers/application_controller'
+require_relative 'models/food'
+require_relative 'models/order'
+require_relative 'models/party'
+require_relative 'models/user'
 
 namespace :db do
 	desc "Create Restaurant Database"

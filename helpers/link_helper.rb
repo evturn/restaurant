@@ -7,6 +7,7 @@ module Sinatra
       return "<a href='#{url_or_record}'>#{body}</a>" if url_or_record.is_a? String
       link_to(record_path(url_or_record), body)
     end
+
     def record_path(record)
       table_name = record.class.table_name
       record_id  = record.id
@@ -43,13 +44,7 @@ module Sinatra
       resource = singularize(resource).capitalize
       Module.const_defined?(resource)
     end
-    # def new_party_path
-    #   "/parties/new"
-    # end
 
-    # def new_food_path
-    #   "/foods/new"
-    # end
   end
   helpers LinkHelper
 end
