@@ -8,6 +8,10 @@ body {
     margin: 0px 70px 0px 70px;
 }
 
+div form {
+    display: inline-block;
+}
+
 li {
 	list-style: none;
 }

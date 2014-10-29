@@ -1,20 +1,18 @@
-require 'bundler'
-Bundler.require
+# require 'bundler'
+# Bundler.require
 
 
-# **** models ****
-require_relative 'models/food'
-require_relative 'models/party'
-require_relative 'models/order'
+# # **** models ****
+# require_relative 'models/food'
+# require_relative 'models/party'
+# require_relative 'models/order'
 
-# **** helpers ****
-require_relative 'helpers/link_helper'
+# # **** helpers ****
+# require_relative 'helpers/link_helper'
+# require_relative 'helpers/form_helper'
 
 
-ActiveRecord::Base.establish_connection({
-	adapter: 'postgresql',
-	dbname: 'restaurant_db'
-	})
+
 
 
 # helpers do
@@ -26,87 +24,105 @@ ActiveRecord::Base.establish_connection({
 
 # --------Order--------
 
-get '/' do
+# get '/' do
 
-	erb :index
-end
+# 	erb :index
+# end
 
 
 
-post '/parties' do
-	@party = Party.create(params[:party])
-  redirect "/parties/#{@party.id}"
-end
+# post '/parties' do
+# 	@party = Party.create(params[:party])
+#   redirect "/parties/#{@party.id}"
+# end
 
-get '/parties/:id' do
-	@party = Party.find(params[:id])
-	@food = Food.all
+# get '/parties/:id' do
+# 	@party = Party.find(params[:id])
+# 	@food = Food.all
 
-	erb :'parties/show'
-end
+# 	erb :'parties/show'
+# end
 
-post '/parties/:id' do
-	@party = Party.find(params[:id])
-	@food = params[:food_id]
-	@order = Order.create({food_id: @food, party_id: @party.id})
+# post '/parties/:id' do
+# 	@party = Party.find(params[:id])
+# 	@food = params[:food_id]
+# 	@order = Order.create({food_id: @food, party_id: @party.id})
 	
-	redirect "/parties/#{@party.id}/orders"
-end
+# 	redirect "/parties/#{@party.id}/orders"
+# end
 
-get '/parties/:id/orders' do
-	@party = Party.find(params[:id])
-	@foods = Food.all
+# get '/parties/:id/orders' do
+# 	@party = Party.find(params[:id])
+# 	@foods = Food.all
 
 	
-	erb :'orders/show'
-end
+# 	erb :'orders/show'
+# end
 
-patch '/parties/:id' do
-	@party = Party.find(params[:id])
-  @food = params[:food_id]
-	@order = Order.create({food_id: @food, party_id: @party.id})
+# patch '/parties/:id' do
+# 	@party = Party.find(params[:id])
+#   @food = params[:food_id]
+# 	@order = Order.create({food_id: @food, party_id: @party.id})
 
   
-	redirect "/parties/#{@party.id}/orders"
-end
+# 	redirect "/parties/#{@party.id}/orders"
+# end
 
 
-get '/orders/:id' do
-	@order = Order.find(params[:id])
-	@food = Food.all
-	erb :'orders/show'
-end
+# get '/orders/:id' do
+# 	@order = Order.find(params[:id])
+# 	@food = Food.all
+# 	erb :'orders/show'
+# end
 
-get '/parties/:id/receipt' do
-	@party = Party.find(params[:id])
+# get '/parties/:id/receipt' do
+# 	@party = Party.find(params[:id])
 	
 	
-	@names = @party.foods.map { |food| food.name }
-	@costs = @party.foods.map { |food| food.price }
-	erb :'orders/receipt'
-end
+# 	@names = @party.foods.map { |food| food.name }
+# 	@costs = @party.foods.map { |food| food.price }
+# 	erb :'orders/receipt'
+# end
 
-delete '/parties/:id/orders' do
-	party = Party.find(params[:id])
-	food  = Food.find(params[:food_id])
-	Order.find_by(party: party, food: food).destroy
-	redirect "/parties/#{party.id}/orders"
-end
+# delete '/parties/:id/orders' do
+# 	party = Party.find(params[:id])
+# 	food  = Food.find(params[:food_id])
+# 	Order.find_by(party: party, food: food).destroy
+# 	redirect "/parties/#{party.id}/orders"
+# end
 
-get '/parties/:id/thank_you' do
-	@party = Party.find(params[:id])
+# get '/parties/:id/thank_you' do
+# 	@party = Party.find(params[:id])
 
-	erb :'parties/paid'
-end
+# 	erb :'parties/paid'
+# end
 
-get '/parties/:id/print' do
-	@order = Order.find(params[:id])
-	File.open('./receipt.txt', 'a+') { |f| f.write("#{@order.food.name} for a subtotal of #{@order.food.price} and a grand total of (#{@order.food.price}.to_i * 1.7.to_i)") }
+# get '/parties/:id/print' do
+# 	@order = Order.find(params[:id])
+# 	File.open('./receipt.txt', 'a+') { |f| f.write("#{@order.food.name} for a subtotal of #{@order.food.price} and a grand total of (#{@order.food.price}.to_i * 1.7.to_i)") }
 	
-	send_file('./receipt.txt')
+# 	send_file('./receipt.txt')
 
-	erb :'orders/print'
-end
+# 	erb :'orders/print'
+# end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # get '/orders/:id/edit' do
 # 	@order = Order.find(params[:id])
