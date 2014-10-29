@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   get '/new' do
-
     erb :'users/new'
   end
 
@@ -9,6 +8,7 @@ class UsersController < ApplicationController
     user = User.new(params[:user])
     user.password = params[:password]
     user.save!
+    session[:current_user] = user.id
     redirect "/parties/new"
   end
 
